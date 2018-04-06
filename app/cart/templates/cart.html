@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class = "container glyphicon-shopping-cart">
+        <h4>Books by {{ user.name }}</h4>
+        <hr>
+        <br>
+        <ol>
+            {% for book in user_books %}
+                <li type="1">
+                    {{ book.title }} by {{ book.author }}
+                </li>
+                {% endfor %}
+            </ol>
+    </div>
+{% endblock content %}

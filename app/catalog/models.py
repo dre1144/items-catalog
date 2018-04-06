@@ -25,20 +25,22 @@ class Book(db.Model):
     format = db.Column(db.String(50))
     image = db.Column(db.String(100), unique=True)
     num_pages = db.Column(db.Integer)
+    price = db.Column(db.Float)
     pub_date = db.Column(db.DateTime, default=datetime.utcnow())
 
 # Relationship
 
     pub_id = db.Column(db.Integer, db.ForeignKey('publication.id'))
 
-    def __init__(self, title, author, avg_rating, book_format, image, num_pages, pub_id):
+    def __init__(self, title, author, avg_rating, book_format, image, num_pages, price, pub_id):
         self.title = title
         self.author = author
         self.avg_rating = avg_rating
         self.format = book_format
         self.image = image
         self.num_pages = num_pages
+        self.price = price
         self.pub_id = pub_id
 
     def __repr__(self):
-        return '{} by {}'.format(self.title, self.author)
+        return '{} by {}'.format(self.title, self.author, self.price)

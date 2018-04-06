@@ -21,7 +21,8 @@ def register_user():
         User.create_user(
             user=form.name.data,
             email=form.email.data,
-            password=form.password.data)
+            password=form.password.data
+        )
         flash('Registration Successful')
         return redirect(url_for('authentication.do_the_login'))
     return render_template('registration.html', form=form)

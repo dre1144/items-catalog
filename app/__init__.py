@@ -32,4 +32,7 @@ def create_app(config_type): #dev, test or prod
     from app.auth import authentication
     app.register_blueprint(authentication)
 
+    from app.cart import cart
+    app.register_blueprint(cart)
+
     return app
